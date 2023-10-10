@@ -1,0 +1,99 @@
+/* var text-decoration */
+@font-face {
+  font-family: myfont;
+  src: url(../utilitaires/fonts/ufonts.com_tw-cen-mt.ttf);
+}
+
+:root {
+  --color-primary: #c54f13;
+  --color-primary-1: #b76b452e;
+  --color-white-1: #fff;
+  --color-dashed: #cccccc2f;
+  --color-dashed-1: #cccccc90;
+  --color-bg-1: rgba(0, 0, 0, 0.366);
+}
+
+* {
+  transition: all 0.5s ease;
+}
+
+body {
+  font-family: myfont !important;
+}
+h1 {
+  display: inline-flex;
+  position: relative;
+  cursor: pointer;
+}
+
+a {
+  color: unset;
+  outline: unset;
+  text-decoration: none !important;
+}
+
+.container-app {
+  background-image: url("../images/bureau_16.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+ul {
+  list-style-type: none; /* Retire les puces */
+}
+
+/* 
+
+****************************  
+Header 
+**************************** 
+
+*/
+
+header {
+  padding-top: 15px;
+  padding-bottom: 10px;
+}
+
+header ul {
+  margin: 0 !important;
+}
+.container-nav {
+  padding: 1.5rem 0rem;  
+  background-color: black;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-item {
+  display: inline;
+  position: relative;
+  color: var(--color-white-1);
+  padding-bottom: 5px;
+  font-size: 1.2rem;
+}
+
+.menu-item:hover {
+  color: var(--color-primary);
+}
+.menu-item::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: var(--color-primary);
+  height: 2.5px;
+  opacity: 1;
+  visibility: visible;
+  width: 0;
+  -webkit-transition: 0.4s all ease-out;
+  -o-transition: 0.4s all ease-out;
+  transition: 0.4s all ease-out;
+}
+.menu-item:hover:before {
+  width: 100%;
+}
+
+.content-form{
+  border : 1px solid #ccc;
+  border-radius: 10px;
+}
