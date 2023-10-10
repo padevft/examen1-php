@@ -58,16 +58,17 @@
     function Mdl_ListeCode(){
         global $connexion;
 
-        $sqlSelectVoyage = "SELECT code FROM voyages";
+        $sqlSelectVoyage = "SELECT transporteur FROM voyages WHERE depart = ?";
         try{
             $stmt = $connexion->prepare($sqlSelectVoyage);
+            $stmt->bind_param("s", 'Montreal');
             $stmt->execute();
             $reponse = $stmt->get_result();
 
             $resultArray = array(); // Créez un tableau pour stocker les résultats
             
             if($reponse->num_rows == 0){     
-                $msg = "Aucun code";
+                $msg = "Aucun transporteur";
             }else{
                 while ($row = $reponse->fetch_assoc()) {
                     $resultArray[] = $row;

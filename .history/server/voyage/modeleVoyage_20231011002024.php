@@ -55,35 +55,6 @@
         
     }
 
-    function Mdl_ListeCode(){
-        global $connexion;
-
-        $sqlSelectVoyage = "SELECT code FROM voyages";
-        try{
-            $stmt = $connexion->prepare($sqlSelectVoyage);
-            $stmt->execute();
-            $reponse = $stmt->get_result();
-
-            $resultArray = array(); // Créez un tableau pour stocker les résultats
-            
-            if($reponse->num_rows == 0){     
-                $msg = "Aucun code";
-            }else{
-                while ($row = $reponse->fetch_assoc()) {
-                    $resultArray[] = $row;
-                }
-            }
-        }catch(Exception $e){
-            $msg = "Erreur : ".$e->getMessage().'<br>';
-        }finally{
-            return $msg;
-        }
-        
-    }
-
-
-    
-
     function Mdl_Ajouter($voyage){
         global $connexion;
         $code = $voyage->getCode();

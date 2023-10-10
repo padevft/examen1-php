@@ -48,7 +48,7 @@
                     echo '</select>';
                 } else {
                     // Si le tableau est vide, affichez un message d'erreur
-                    // echo "<p>Aucun transporteur trouvé.</p>";
+                    echo "<p>Aucun transporteur trouvé.</p>";
                 }
             ?>
             <select name="code" id="code" required class="form-select fw-semibold" placeholder="Code">
