@@ -91,10 +91,10 @@
         $destination = $voyage->getDestination();
         $transporteur = $voyage->getTransporteur();
 
-        $sqlInsertVoyage = "INSERT INTO voyages VALUES (?, ?, ?, ?)";
+        $sqlInsertVoyage = "INSERT INTO voyages VALUES (?, ?, ?, ?, ?)";
         try{              
                 $stmt = $connexion->prepare($sqlInsertVoyage);
-                $stmt->bind_param("isss",$code, $depart,$destination,$transporteur);
+                $stmt->bind_param("ssss",$code, $depart,$destination,$transporteur,);
                 $stmt->execute();
                 return "1";           
 
@@ -110,7 +110,7 @@
         $sql = "DELETE FROM voyages WHERE code = ? ";
         try{              
                 $stmt = $connexion->prepare($sql);
-                $stmt->bind_param("i",$code);
+                $stmt->bind_param("s",$code);
                 if ($stmt->execute()) {
                     // La suppression a réussi
                     return "1";

@@ -33,7 +33,7 @@
         </ul>
     </nav>
   </header>
-  <main class="transporteurs">
+  <main class="voyages">
     <h2 class="d-flex justify-content-center py-3"><b>Liste Des Transporteurs</b></h2>
     <div class="table-responsive">
         <table class="table table-bordered rounded my-2 bg-white">

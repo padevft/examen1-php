@@ -91,7 +91,7 @@
         $destination = $voyage->getDestination();
         $transporteur = $voyage->getTransporteur();
 
-        $sqlInsertVoyage = "INSERT INTO voyages VALUES (?, ?, ?, ?)";
+        $sqlInsertVoyage = "INSERT INTO voyages VALUES (?, ?, ?, ?, ?)";
         try{              
                 $stmt = $connexion->prepare($sqlInsertVoyage);
                 $stmt->bind_param("isss",$code, $depart,$destination,$transporteur);

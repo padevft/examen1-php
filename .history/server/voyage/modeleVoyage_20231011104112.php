@@ -33,8 +33,7 @@
         $sqlSelectVoyage = "SELECT transporteur FROM voyages WHERE depart = ?";
         try{
             $stmt = $connexion->prepare($sqlSelectVoyage);
-            $depart = 'Montreal';
-            $stmt->bind_param("s", $depart);
+            $stmt->bind_param("s", 'Montreal');
             $stmt->execute();
             $reponse = $stmt->get_result();
 
@@ -91,10 +90,10 @@
         $destination = $voyage->getDestination();
         $transporteur = $voyage->getTransporteur();
 
-        $sqlInsertVoyage = "INSERT INTO voyages VALUES (?, ?, ?, ?)";
+        $sqlInsertVoyage = "INSERT INTO voyages VALUES (?, ?, ?, ?, ?)";
         try{              
                 $stmt = $connexion->prepare($sqlInsertVoyage);
-                $stmt->bind_param("isss",$code, $depart,$destination,$transporteur);
+                $stmt->bind_param("ssss",$code, $depart,$destination,$transporteur,);
                 $stmt->execute();
                 return "1";           
 
@@ -103,27 +102,4 @@
         }
         
     }
-
-    function Mdl_SupprimerVols($code){
-        global $connexion;
-
-        $sql = "DELETE FROM voyages WHERE code = ? ";
-        try{              
-                $stmt = $connexion->prepare($sql);
-                $stmt->bind_param("i",$code);
-                if ($stmt->execute()) {
-                    // La suppression a réussi
-                    return "1";
-                } else {
-                    // Il y a eu un problème lors de la suppression
-                    return "Erreur lors de la suppression.";
-                }          
-
-        }catch(Exception $e){
-            return "Erreur : ".$e->getMessage().'<br>';
-        }
-        
-    }
-
-
 ?>

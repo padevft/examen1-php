@@ -14,7 +14,7 @@
             $resultArray = array(); // Créez un tableau pour stocker les résultats
 
             if($reponse->num_rows == 0){     
-                return "Aucun voyage";
+                $msg = "Aucun voyage";
             }else{
                 while ($row = $reponse->fetch_assoc()) {
                     $resultArray[] = $row;
@@ -22,7 +22,9 @@
                 return $resultArray;
             }
         }catch(Exception $e){
-            return "Erreur : ".$e->getMessage().'<br>';
+            $msg = "Erreur : ".$e->getMessage().'<br>';
+        }finally{
+            return $msg;
         }
         
     }
@@ -33,24 +35,23 @@
         $sqlSelectVoyage = "SELECT transporteur FROM voyages WHERE depart = ?";
         try{
             $stmt = $connexion->prepare($sqlSelectVoyage);
-            $depart = 'Montreal';
-            $stmt->bind_param("s", $depart);
+            $stmt->bind_param("s", 'Montreal');
             $stmt->execute();
             $reponse = $stmt->get_result();
 
             $resultArray = array(); // Créez un tableau pour stocker les résultats
             
             if($reponse->num_rows == 0){     
-                return "Aucun transporteur";
+                $msg = "Aucun transporteur";
             }else{
                 while ($row = $reponse->fetch_assoc()) {
                     $resultArray[] = $row;
                 }
-
-                return $resultArray;
             }
         }catch(Exception $e){
-            return "Erreur : ".$e->getMessage().'<br>';
+            $msg = "Erreur : ".$e->getMessage().'<br>';
+        }finally{
+            return $msg;
         }
         
     }
@@ -67,16 +68,16 @@
             $resultArray = array(); // Créez un tableau pour stocker les résultats
             
             if($reponse->num_rows == 0){     
-                return "Aucun code";
+                $msg = "Aucun code";
             }else{
                 while ($row = $reponse->fetch_assoc()) {
                     $resultArray[] = $row;
                 }
-
-                return $resultArray;
             }
         }catch(Exception $e){
-            return "Erreur : ".$e->getMessage().'<br>';
+            $msg = "Erreur : ".$e->getMessage().'<br>';
+        }finally{
+            return $msg;
         }
         
     }
@@ -91,39 +92,19 @@
         $destination = $voyage->getDestination();
         $transporteur = $voyage->getTransporteur();
 
-        $sqlInsertVoyage = "INSERT INTO voyages VALUES (?, ?, ?, ?)";
+        $sqlInsertVoyage = "INSERT INTO voyages VALUES (?, ?, ?, ?, ?)";
         try{              
                 $stmt = $connexion->prepare($sqlInsertVoyage);
-                $stmt->bind_param("isss",$code, $depart,$destination,$transporteur);
+                $stmt->bind_param("ssss",$code, $depart,$destination,$transporteur,);
                 $stmt->execute();
-                return "1";           
+                $msg = "Voyage crée";
+           
 
         }catch(Exception $e){
-            return "Erreur : ".$e->getMessage().'<br>';
+            $msg = "Erreur : ".$e->getMessage().'<br>';
+        }finally{
+            return $msg;
         }
         
     }
-
-    function Mdl_SupprimerVols($code){
-        global $connexion;
-
-        $sql = "DELETE FROM voyages WHERE code = ? ";
-        try{              
-                $stmt = $connexion->prepare($sql);
-                $stmt->bind_param("i",$code);
-                if ($stmt->execute()) {
-                    // La suppression a réussi
-                    return "1";
-                } else {
-                    // Il y a eu un problème lors de la suppression
-                    return "Erreur lors de la suppression.";
-                }          
-
-        }catch(Exception $e){
-            return "Erreur : ".$e->getMessage().'<br>';
-        }
-        
-    }
-
-
 ?>

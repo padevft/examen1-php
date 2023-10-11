@@ -2,7 +2,7 @@
     require_once('../voyage/includes/Voyage.php');
     require_once('../voyage/modeleVoyage.php');
     function Ctr_Liste(){
-        return Mdl_ListeTransporteur();
+        return Mdl_ListeCode();
     }
     $resultat = Ctr_Liste();
 ?>
@@ -33,33 +33,29 @@
         </ul>
     </nav>
   </header>
-  <main class="transporteurs">
-    <h2 class="d-flex justify-content-center py-3"><b>Liste Des Transporteurs</b></h2>
-    <div class="table-responsive">
-        <table class="table table-bordered rounded my-2 bg-white">
-                <thead>
-                    <tr class="active text-secondary">
-                        <th>Transporteur</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php
-                    // Testez si $resultat est un tableau
-                    if (is_array($resultat)) {
-                        // Si c'est un tableau, itérez à travers les éléments et affichez-les
-                        foreach ($resultat as $row) {
-                            echo "<tr>";
-                            echo "<td>" . $row['transporteur'] . "</td>";
-                            echo "</tr>";
-                        }
-                    } else {
-                        // Sinon, affichez un message d'erreur
-                        echo "<tr><td colspan='4'>Aucun Transporteur trouvé.</td></tr>";
+  <main class="voyages">
+    <h2 class="d-flex justify-content-center py-3"><b>Supprimer les vols</b></h2>
+    <form action="./../voyage/controleurSupprimerVols.php" class="d-flex flex-column gap-2 align-items-center">
+        <div class="d-flex col-12 col-md-4 flex-column gap-2">
+            <label for="code" class="fw-semibold">Code</label>
+            <?php
+                if (is_array($resultat) && count($resultat) > 0) {
+                    echo '<select name="code" id="code" required class="form-select fw-semibold" placeholder="Code">';
+                    foreach ($resultat as $row) {
+                        echo "<option value='{$row['code']}'>{$row['code']}</option>";
                     }
-                    ?>
-                </tbody>
-            </table>
-    </div>
+                    echo '</select>';
+                } else {
+                    // Si le tableau est vide, affichez un message d'erreur
+                    echo "<p>Aucun transporteur trouvé.</p>";
+                }
+            ?>
+            
+        </div>
+        <div class="col-12 col-md-4 d-flex justify-content-end gap-2">
+            <button type="submit" class="btn btn-dark px-4">Supprimer</button>
+        </div>
+    </form>
 
   </main>
   <script src="../../client/utilitaires/Jquery/jquery-3.6.0.min.js"></script>

@@ -12,12 +12,8 @@
         return Mdl_Ajouter($voyage);
     }
     $msg = Ctr_Ajouter();
-    if($msg == '1'){
-        header('Location: ./../pages/voyages.php');
-        exit; 
-    }else{
-        echo $msg;
-    }   
+
+    echo $msg;
 ?>
 <br />
 <a href="../../index.php">Retour a la page d'acceuil</a>
