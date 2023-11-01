@@ -56,7 +56,7 @@
             <button type="submit" class="btn btn-dark px-4">Supprimer</button>
         </div>
     </form>
-    <div class="d-flex justify-content-center pt-3"><a href="./../../index.php" class="menu-item">Retourner à la page d'accueil</a></div>
+    <div class="d-flex justify-content-center"><a href="./../../index.php" class="menu-item">Retourner a la page d'accueil</a></div>
 
   </main>
   <script src="../../client/utilitaires/Jquery/jquery-3.6.0.min.js"></script>

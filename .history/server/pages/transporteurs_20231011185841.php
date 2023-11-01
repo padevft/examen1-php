@@ -2,8 +2,7 @@
     require_once('../voyage/includes/Voyage.php');
     require_once('../voyage/modeleVoyage.php');
     function Ctr_Liste(){
-        return Mdl_Liste();
-        // return "";
+        return Mdl_ListeTransporteur();
     }
     $resultat = Ctr_Liste();
 ?>
@@ -24,15 +23,22 @@
 </head>
 
 <body>
-  <main class="voyages">
-    <h2 class="d-flex justify-content-center py-3"><b>Liste Des Voyages</b></h2>
+  <header>
+    <nav class="container-nav">
+        <ul class="d-flex flex-row align-items-center justify-content-center gap-4 menu">
+          <li><a href="./../../index.php" class="menu-item">Question a</a></li>
+            <li><a href="./../../server/pages/voyages.php" class="menu-item">Question b</a></li>
+            <li><a href="./../../server/pages/transporteurs.php" class="menu-item">Question c</a></li>              
+            <li><a href="./../../server/pages/supprimerVols.php" class="menu-item">Question d</a></li>
+        </ul>
+    </nav>
+  </header>
+  <main class="transporteurs">
+    <h2 class="d-flex justify-content-center py-3"><b>Liste Des Transporteurs</b></h2>
     <div class="table-responsive">
         <table class="table table-bordered rounded my-2 bg-white">
                 <thead>
                     <tr class="active text-secondary">
-                        <th>Code</th>
-                        <th>Deaprt</th>
-                        <th>Destination</th>
                         <th>Transporteur</th>
                     </tr>
                 </thead>
@@ -43,22 +49,17 @@
                         // Si c'est un tableau, itérez à travers les éléments et affichez-les
                         foreach ($resultat as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row['code'] . "</td>";
-                            echo "<td>" . $row['depart'] . "</td>";
-                            echo "<td>" . $row['destination'] . "</td>";
                             echo "<td>" . $row['transporteur'] . "</td>";
                             echo "</tr>";
                         }
                     } else {
                         // Sinon, affichez un message d'erreur
-                        echo "<tr><td colspan='4'>Aucun voyage trouvé.</td></tr>";
+                        echo "<tr><td colspan='4'>Aucun Transporteur trouvé.</td></tr>";
                     }
                     ?>
                 </tbody>
             </table>
     </div>
-    <div class="d-flex justify-content-center pt-3"><a href="./../../index.php" class="menu-item">Retourner à la page d'accueil</a></div>
-
 
   </main>
   <script src="../../client/utilitaires/Jquery/jquery-3.6.0.min.js"></script>

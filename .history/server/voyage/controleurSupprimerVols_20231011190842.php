@@ -8,12 +8,7 @@
     }
     $msg = Ctr_SupprimerVols();
 
-    if($msg == '1'){
-        header('Location: ./../pages/voyages.php');
-        exit; 
-    }else{
-        echo $msg;
-    }   
+    $msg   
 ?>
 <br />
 <a href="../../index.php">Retourner à la page d'accueil</a>

@@ -2,8 +2,7 @@
     require_once('../voyage/includes/Voyage.php');
     require_once('../voyage/modeleVoyage.php');
     function Ctr_Liste(){
-        return Mdl_Liste();
-        // return "";
+        return Mdl_ListeTransporteur();
     }
     $resultat = Ctr_Liste();
 ?>
@@ -24,15 +23,12 @@
 </head>
 
 <body>
-  <main class="voyages">
-    <h2 class="d-flex justify-content-center py-3"><b>Liste Des Voyages</b></h2>
+  <main class="transporteurs">
+    <h2 class="d-flex justify-content-center py-3"><b>Liste Des Transporteurs</b></h2>
     <div class="table-responsive">
         <table class="table table-bordered rounded my-2 bg-white">
                 <thead>
                     <tr class="active text-secondary">
-                        <th>Code</th>
-                        <th>Deaprt</th>
-                        <th>Destination</th>
                         <th>Transporteur</th>
                     </tr>
                 </thead>
@@ -43,21 +39,18 @@
                         // Si c'est un tableau, itérez à travers les éléments et affichez-les
                         foreach ($resultat as $row) {
                             echo "<tr>";
-                            echo "<td>" . $row['code'] . "</td>";
-                            echo "<td>" . $row['depart'] . "</td>";
-                            echo "<td>" . $row['destination'] . "</td>";
                             echo "<td>" . $row['transporteur'] . "</td>";
                             echo "</tr>";
                         }
                     } else {
                         // Sinon, affichez un message d'erreur
-                        echo "<tr><td colspan='4'>Aucun voyage trouvé.</td></tr>";
+                        echo "<tr><td colspan='4'>Aucun Transporteur trouvé.</td></tr>";
                     }
                     ?>
                 </tbody>
             </table>
     </div>
-    <div class="d-flex justify-content-center pt-3"><a href="./../../index.php" class="menu-item">Retourner à la page d'accueil</a></div>
+    <div class="d-flex justify-content-center pt-3"><a href="./../../index.php" class="menu-item">Retourner a la page d'accueil</a></div>
 
 
   </main>

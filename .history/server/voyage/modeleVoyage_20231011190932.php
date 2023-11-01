@@ -96,7 +96,7 @@
                 $stmt = $connexion->prepare($sqlInsertVoyage);
                 $stmt->bind_param("isss",$code, $depart,$destination,$transporteur);
                 $stmt->execute();
-                return "Voyage enregistré";           
+                return "1";           
 
         }catch(Exception $e){
             return "Erreur : ".$e->getMessage().'<br>';

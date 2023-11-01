@@ -17,10 +17,10 @@
   <header>
     <nav class="container-nav">
         <ul class="d-flex flex-row align-items-center justify-content-center gap-4 menu">
-          <li><a href="index.php" class="menu-item">Question a</a></li>
-            <li><a href="./server/pages/voyages.php" class="menu-item">Question b</a></li>
-            <li><a href="./server/pages/transporteurs.php" class="menu-item">Question c</a></li>              
-            <li><a href="./server/pages/supprimerVols.php" class="menu-item">Question d</a></li>
+          <li><a href="index.php" class="menu-item">Inserer</a></li>
+            <li><a href="./server/pages/voyages.php" class="menu-item">Voyages</a></li>
+            <li><a href="./server/pages/transporteurs.php" class="menu-item">Transporteurs</a></li>              
+            <li><a href="./server/pages/supprimerVols.php" class="menu-item">Supprimer</a></li>
         </ul>
     </nav>
   </header>

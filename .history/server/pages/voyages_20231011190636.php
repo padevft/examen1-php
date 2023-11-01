@@ -57,7 +57,7 @@
                 </tbody>
             </table>
     </div>
-    <div class="d-flex justify-content-center pt-3"><a href="./../../index.php" class="menu-item">Retourner à la page d'accueil</a></div>
+    <div class="d-flex justify-content-center pt-3"><a href="./../../index.php" class="menu-item">Retourner a la page d'accueil</a></div>
 
 
   </main>

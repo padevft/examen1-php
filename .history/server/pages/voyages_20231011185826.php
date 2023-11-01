@@ -24,6 +24,16 @@
 </head>
 
 <body>
+  <header>
+    <nav class="container-nav">
+        <ul class="d-flex flex-row align-items-center justify-content-center gap-4 menu">
+          <li><a href="./../../index.php" class="menu-item">Question a</a></li>
+            <li><a href="../../server/pages/voyages.php" class="menu-item">Question b</a></li>
+            <li><a href="../../server/pages/transporteurs.php" class="menu-item">Question c</a></li>              
+            <li><a href="../../server/pages/supprimerVols.php" class="menu-item">Question d</a></li>
+        </ul>
+    </nav>
+  </header>
   <main class="voyages">
     <h2 class="d-flex justify-content-center py-3"><b>Liste Des Voyages</b></h2>
     <div class="table-responsive">
@@ -57,8 +67,6 @@
                 </tbody>
             </table>
     </div>
-    <div class="d-flex justify-content-center pt-3"><a href="./../../index.php" class="menu-item">Retourner à la page d'accueil</a></div>
-
 
   </main>
   <script src="../../client/utilitaires/Jquery/jquery-3.6.0.min.js"></script>

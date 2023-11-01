@@ -94,6 +94,6 @@ header ul {
   padding: 3rem 20rem;
 }
 
-.voyages a,.transporteurs a {
+.voyages a {
   color: var(--color-primary) !important;
 }
